@@ -23,8 +23,8 @@
 -export([lex/1, parse_tokens/1]).
 
 -type sections() :: [section()].
--type section() :: {Title::atom(), [property()]}.
--type property() :: {Key::atom(), Value::binary()}.
+-type section() :: {Title::binary(), [property()]}.
+-type property() :: {Key::binary(), Value::binary()}.
 
 -type reason() :: {illegal_character, Line::integer(), Reason::string()}
                 | {syntax_error, Line::integer(), Reason::string()}
@@ -115,7 +115,7 @@ validate(Sections, AccTitles, AccSections, [{Key, _Value}|Properties], AccKeys) 
       validate(Sections, AccTitles, AccSections, Properties, [Key|AccKeys])
   end.
 
--spec to_map({ok,  Sections :: sections()} | {error, Reason :: term()} ) -> map() | {error, Reason :: term()}.
+-spec to_map({ok,  Sections :: sections()} | {error, Reason :: term()} ) -> {ok, map()} | {error, Reason :: term()}.
 to_map({ok, Sections}) ->
   {ok, lists:foldl(fun({Section, Properties}, Acc) ->
                   maps:put(Section, maps:from_list(Properties), Acc)
