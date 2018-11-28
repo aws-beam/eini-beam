@@ -8,3 +8,4 @@ deps
 /_build
 /TEST-*.xml
 .rebar
+rebar.lock
