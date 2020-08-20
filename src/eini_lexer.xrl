@@ -20,7 +20,7 @@
 Definitions.
 
 %% Characters for keys
-K = [a-zA-Z0-9_\-\.]+
+K = [a-zA-Z0-9_\-\.@/]+
 
 
 %% \x3b : $;
