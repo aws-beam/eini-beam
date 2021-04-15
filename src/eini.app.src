@@ -1,10 +1,10 @@
-{application, eini, [
+{application, 'eini-beam', [
     {description, "An Erlang INI parser"},
     {vsn, git},
     {applications, [kernel, stdlib]},
     {modules, []},
     {registered, []},
     {licenses, ["Apache 2.0"]},
-    {links, [{"Github", "https://github.com/erlcloud/eini"}]},
+    {links, [{"Github", "https://github.com/aws-beam/eini-beam"}]},
     {exclude_files, ["src/eini_parser.erl", "src/eini_lexer.erl"]}
 ]}.

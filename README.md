@@ -1,5 +1,5 @@
-Eini - An Erlang INI parser
-===========================
+eini-beam - An Erlang INI parser
+================================
 This is just an INI parser. That's it. No state, no gen_servers, no ets tables,
 just a parser that returns a map and does not convert strings into atoms.
 
@@ -28,8 +28,8 @@ Result form:
 History
 -------
 This is a fork to decruft the parser of things it doesn't need (supervision,
-ETS, gen_server) and make it use maps and not convert to atoms. Use maps
-for goodness' sake. It's 2018 people.
+ETS, gen_server) and make it use maps and not convert to atoms. We renamed
+the repo in 2021 so we could publish it to hex.
 
 Copyright
 ---------
