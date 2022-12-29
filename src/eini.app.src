@@ -1,4 +1,4 @@
-{application, 'eini-beam', [
+{application, eini, [
     {description, "An Erlang INI parser"},
     {vsn, git},
     {applications, [kernel, stdlib]},
