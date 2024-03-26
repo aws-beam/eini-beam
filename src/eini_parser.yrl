@@ -23,6 +23,8 @@ Nonterminals
   sections_with_skip_lines
   section
   title_part
+  title_word
+  title_words
   title
   property_with_skip_lines
   properties property
@@ -70,7 +72,13 @@ title_part -> title blank break            : list_to_binary('$1').
 title_part -> title break skip_lines       : list_to_binary('$1').
 title_part -> title blank break skip_lines : list_to_binary('$1').
 
-title -> '[' word ']'              : value_of('$2').
+title_word -> word : value_of('$1').
+title_word -> blank : value_of('$1').
+
+title_words -> title_word : ['$1'].
+title_words -> title_word title_words : ['$1' | '$2'].
+
+title -> '[' title_words ']' : string:strip(lists:flatten('$2'), both, $\s).
 
 properties -> '$empty' : [].
 properties -> property_with_skip_lines properties : ['$1' | '$2'].
@@ -90,7 +98,7 @@ values -> single_value : ['$1'].
 values -> single_value values : ['$1' | '$2'].
 
 %% At value position, any characters are accepted AS IS.
-single_value ->  word    : value_of('$1'). 
+single_value ->  word    : value_of('$1').
 single_value ->  value   : value_of('$1').
 single_value ->  blank   : value_of('$1').
 single_value ->  comment : value_of('$1').
