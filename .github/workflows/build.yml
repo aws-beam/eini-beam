@@ -45,6 +45,5 @@ jobs:
     - name: Publish Documentation
       uses: actions/upload-artifact@v4
       with:
-        name: edoc_otp${{ matrix.otp-version }}
+        name: edoc OTP${{ matrix.otp-version }}
         path: doc
-        overwrite: true
