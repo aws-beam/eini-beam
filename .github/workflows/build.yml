@@ -43,7 +43,8 @@ jobs:
     - name: Produce Documentation
       run: rebar3 edoc || true
     - name: Publish Documentation
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v4
       with:
-        name: edoc
+        name: edoc_otp${{ matrix.otp-version }}
         path: doc
+        overwrite: true
