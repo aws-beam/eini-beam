@@ -258,10 +258,10 @@ one_section_title_and_one_prop_test_() ->
                     "key1=  value1  \n"
                    )),
     %% value has characters which can not used in titles or keys
-    ?_assertEqual({ok, #{ <<"title">> => #{ <<"key1">> => <<"value1$% '""#!+*=@/:+">> } }},
+    ?_assertEqual({ok, #{ <<"title">> => #{ <<"key1">> => <<"value1$% '" "#!+*=@/:+">> } }},
                   parse(
                     "[title]\n"
-                    "key1=value1$% '""#!+*=@/:+\n"
+                    "key1=value1$% '" "#!+*=@/:+\n"
                    ))
    ]}.
 
